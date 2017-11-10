@@ -13,70 +13,71 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var costLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    
-    let categories = [
-        Category(name: "Electricity", color: SharedConstants.purple),
-        Category(name: "Internet", color: SharedConstants.blue),
-        Category(name: "Gas", color: SharedConstants.green),
-        Category(name: "Food", color: SharedConstants.orange),
-        Category(name: "Home Supplies", color: SharedConstants.yellow),
-        Category(name: "Water", color: SharedConstants.lightBlue),
-        Category(name: "Rent", color: SharedConstants.lightGreen),
-    ]
-    
-    var lineItems = [LineItem]()
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        commonInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    func commonInit() {
-        lineItems = [
-            LineItem(category: categories[4], cost: SharedConstants.currencyFormatter.number(from: "$19.57")!.decimalValue),
-            LineItem(category: categories[2], cost: SharedConstants.currencyFormatter.number(from: "$58.17")!.decimalValue),
-            LineItem(category: categories[0], cost: SharedConstants.currencyFormatter.number(from: "$15.27")!.decimalValue),
-        ]
-    }
+    @IBOutlet weak var ownerSegmentedControl: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        promptLabel.text = "You owe"
-        costLabel.text = SharedConstants.currencyFormatter.string(from: NSDecimalNumber(decimal: Decimal()))
         actionButton.layer.cornerRadius = actionButton.frame.height / 2
+        updateBalance()
+        
+        ownerSegmentedControl.removeAllSegments()
+        for i in 0..<BalanceSingleton.instance.owners.count {
+            ownerSegmentedControl.insertSegment(withTitle: BalanceSingleton.instance.owners[i].name, at: i, animated: false)
+        }
+        setOwnerIndex(index: BalanceSingleton.instance.ownerIndex)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCategory" {
             let categoryViewController = segue.destination as! CategoryViewController
-            categoryViewController.setCategories(categories: categories)
+            categoryViewController.setCategories(categories: BalanceSingleton.instance.categories)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lineItems.count
+        return BalanceSingleton.instance.aggregates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LineItemCell", for: indexPath) as! LineItemCell
-        let lineItem = lineItems[indexPath.row]
-        cell.setLineItem(lineItem: lineItem)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AggregateCell", for: indexPath) as! AggregateCell
+        let aggregate = BalanceSingleton.instance.aggregates[indexPath.row]
+        cell.setAggregate(aggregate: aggregate)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+    }
+    
+    @IBAction func ownerChanged(_ sender: UISegmentedControl) {
+        setOwnerIndex(index: sender.selectedSegmentIndex)
+    }
+    
+    func setOwnerIndex(index: Int) {
+        BalanceSingleton.instance.setOwnerIndex(index: index)
+        ownerSegmentedControl.selectedSegmentIndex = index
+        tableView.reloadData()
+    }
+    
+    func updateBalance() {
+        if BalanceSingleton.instance.balance < 0 {
+            promptLabel.text = "You owe"
+            costLabel.text = SharedConstants.currencyFormatter.string(from: NSDecimalNumber(decimal: -BalanceSingleton.instance.balance))
+            actionButton.setTitle("Pay", for: .normal)
+        } else {
+            promptLabel.text = "You get back"
+            costLabel.text = SharedConstants.currencyFormatter.string(from: NSDecimalNumber(decimal: BalanceSingleton.instance.balance))
+            actionButton.setTitle("Request", for: .normal)
+        }
     }
     
     @IBAction func unwindToHome(segue: UIStoryboardSegue) {
     }
     
     func addLineItem(lineItem: LineItem) {
-        lineItems.append(lineItem)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: lineItems.count - 1, section: 0)], with: .none)
-        tableView.endUpdates()
+        BalanceSingleton.instance.personalOwner.lineItems.append(lineItem)
+        setOwnerIndex(index: BalanceSingleton.instance.personalIndex)
+        updateBalance()
     }
 }
 
