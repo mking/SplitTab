@@ -9,6 +9,18 @@
 import UIKit
 
 class SharedConstants {
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter
+    }()
+    
+    static let currencyFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
+    
     static let purple = UIColor(red: CGFloat(197.0 / 255.0), green: CGFloat(170.0 / 255.0), blue: CGFloat(215.0 / 255.0), alpha: 1)
     static let blue = UIColor(red: CGFloat(81.0 / 255.0), green: CGFloat(146.0 / 255.0), blue: CGFloat(247.0 / 255.0), alpha: 1)
     static let green = UIColor(red: CGFloat(90.0 / 255.0), green: CGFloat(203.0 / 255.0), blue: CGFloat(160.0 / 255.0), alpha: 1)

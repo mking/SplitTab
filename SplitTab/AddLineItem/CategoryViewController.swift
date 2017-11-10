@@ -11,15 +11,7 @@ import UIKit
 class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var collectionView: UICollectionView!
 
-    let categories = [
-        Category(name: "Electricity", color: SharedConstants.purple),
-        Category(name: "Internet", color: SharedConstants.blue),
-        Category(name: "Gas", color: SharedConstants.green),
-        Category(name: "Food", color: SharedConstants.orange),
-        Category(name: "Home Supplies", color: SharedConstants.yellow),
-        Category(name: "Water", color: SharedConstants.lightBlue),
-        Category(name: "Rent", color: SharedConstants.lightGreen),
-    ]
+    var categories: [Category]!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
@@ -38,5 +30,9 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
             let category = categories[collectionView.indexPathsForSelectedItems!.first!.row]
             lineItemViewController.setCategory(category: category)
         }
+    }
+    
+    func setCategories(categories: [Category]) {
+        self.categories = categories
     }
 }

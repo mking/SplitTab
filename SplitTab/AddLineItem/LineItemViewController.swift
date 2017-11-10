@@ -12,6 +12,7 @@ class LineItemViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var costField: UITextField!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     var category: Category!
     
     override func viewDidLoad() {
@@ -23,5 +24,13 @@ class LineItemViewController: UIViewController {
     
     func setCategory(category: Category) {
         self.category = category
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UnwindToHome" {
+            let cost = Decimal(string: costField.text!) ?? Decimal()
+            let homeViewController = segue.destination as! HomeViewController
+            homeViewController.addLineItem(lineItem: LineItem(category: category, cost: cost))
+        }
     }
 }
