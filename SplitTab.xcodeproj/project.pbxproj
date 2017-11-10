@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		083AB0C71FB5B4F400699F8E /* BalanceSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB0C61FB5B4F400699F8E /* BalanceSingleton.swift */; };
-		083AB0C91FB5B50800699F8E /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB0C81FB5B50800699F8E /* Balance.swift */; };
+		083AB0C71FB5B4F400699F8E /* TrackerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB0C61FB5B4F400699F8E /* TrackerSingleton.swift */; };
+		083AB0C91FB5B50800699F8E /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB0C81FB5B50800699F8E /* Tracker.swift */; };
 		083AB0CB1FB5B84000699F8E /* Aggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB0CA1FB5B84000699F8E /* Aggregate.swift */; };
+		083AB0CF1FB5BBFD00699F8E /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB0CE1FB5BBFD00699F8E /* BalanceViewController.swift */; };
+		083AB0D11FB5BC0800699F8E /* AggregateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AB0D01FB5BC0800699F8E /* AggregateViewController.swift */; };
 		08E9CA0A1FB55CD500619B6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9CA091FB55CD500619B6A /* AppDelegate.swift */; };
 		08E9CA0C1FB55CD500619B6A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E9CA0B1FB55CD500619B6A /* HomeViewController.swift */; };
 		08E9CA0F1FB55CD500619B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E9CA0D1FB55CD500619B6A /* Main.storyboard */; };
@@ -27,9 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		083AB0C61FB5B4F400699F8E /* BalanceSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceSingleton.swift; sourceTree = "<group>"; };
-		083AB0C81FB5B50800699F8E /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		083AB0C61FB5B4F400699F8E /* TrackerSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerSingleton.swift; sourceTree = "<group>"; };
+		083AB0C81FB5B50800699F8E /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
 		083AB0CA1FB5B84000699F8E /* Aggregate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aggregate.swift; sourceTree = "<group>"; };
+		083AB0CE1FB5BBFD00699F8E /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
+		083AB0D01FB5BC0800699F8E /* AggregateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AggregateViewController.swift; sourceTree = "<group>"; };
 		08E9CA061FB55CD500619B6A /* SplitTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E9CA091FB55CD500619B6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08E9CA0B1FB55CD500619B6A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -112,8 +116,8 @@
 				08E9CA261FB571AB00619B6A /* SharedConstants.swift */,
 				08E9CA281FB5753F00619B6A /* LineItem.swift */,
 				08E9CA2C1FB5A6EC00619B6A /* Owner.swift */,
-				083AB0C61FB5B4F400699F8E /* BalanceSingleton.swift */,
-				083AB0C81FB5B50800699F8E /* Balance.swift */,
+				083AB0C61FB5B4F400699F8E /* TrackerSingleton.swift */,
+				083AB0C81FB5B50800699F8E /* Tracker.swift */,
 				083AB0CA1FB5B84000699F8E /* Aggregate.swift */,
 			);
 			path = Models;
@@ -122,8 +126,10 @@
 		08E9CA251FB5713C00619B6A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				08E9CA0B1FB55CD500619B6A /* HomeViewController.swift */,
+				083AB0CE1FB5BBFD00699F8E /* BalanceViewController.swift */,
+				083AB0D01FB5BC0800699F8E /* AggregateViewController.swift */,
 				08E9CA2A1FB5776100619B6A /* AggregateCell.swift */,
+				08E9CA0B1FB55CD500619B6A /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -272,18 +278,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				08E9CA291FB5753F00619B6A /* LineItem.swift in Sources */,
-				083AB0C71FB5B4F400699F8E /* BalanceSingleton.swift in Sources */,
+				083AB0C71FB5B4F400699F8E /* TrackerSingleton.swift in Sources */,
 				083AB0CB1FB5B84000699F8E /* Aggregate.swift in Sources */,
 				08E9CA271FB571AB00619B6A /* SharedConstants.swift in Sources */,
 				08E9CA1D1FB55FBA00619B6A /* CategoryViewController.swift in Sources */,
+				083AB0CF1FB5BBFD00699F8E /* BalanceViewController.swift in Sources */,
 				08E9CA2D1FB5A6EC00619B6A /* Owner.swift in Sources */,
 				08E9CA221FB5620100619B6A /* Category.swift in Sources */,
 				08E9CA1F1FB560F300619B6A /* CategoryCell.swift in Sources */,
 				08E9CA2B1FB5776100619B6A /* AggregateCell.swift in Sources */,
 				08E9CA0C1FB55CD500619B6A /* HomeViewController.swift in Sources */,
 				08E9CA0A1FB55CD500619B6A /* AppDelegate.swift in Sources */,
-				083AB0C91FB5B50800699F8E /* Balance.swift in Sources */,
+				083AB0C91FB5B50800699F8E /* Tracker.swift in Sources */,
 				08E9CA241FB5664000619B6A /* LineItemViewController.swift in Sources */,
+				083AB0D11FB5BC0800699F8E /* AggregateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  Balance.swift
+//  Tracker.swift
 //  SplitTab
 //
 //  Created by matt2 on 11/10/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Balance {
+class Tracker {
     var categories = [Category]()
     var owners = [Owner]()
     var ownerIndex = 0
@@ -66,8 +66,8 @@ class Balance {
         ]
     }
     
-    func setOwnerIndex(index: Int) {
-        ownerIndex = index
+    func setOwnerIndex(ownerIndex: Int) {
+        self.ownerIndex = ownerIndex
     }
     
     func getAggregates(owner: Owner) -> [Aggregate] {

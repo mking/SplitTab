@@ -1,5 +1,5 @@
 //
-//  BalanceSingleton.swift
+//  TrackerSingleton.swift
 //  SplitTab
 //
 //  Created by matt2 on 11/10/17.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class BalanceSingleton {
-    static let instance = Balance()
+class TrackerSingleton {
+    static let instance = Tracker()
 }
