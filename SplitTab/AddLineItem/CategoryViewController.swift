@@ -12,13 +12,13 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var collectionView: UICollectionView!
 
     let categories = [
-        Category(name: "Electricity", color: UIColor.purple),
-        Category(name: "Internet", color: UIColor.blue),
-        Category(name: "Gas", color: UIColor.green),
-        Category(name: "Food", color: UIColor.orange),
-        Category(name: "Home Supplies", color: UIColor.yellow),
-        Category(name: "Water", color: UIColor.blue),
-        Category(name: "Rent", color: UIColor.green),
+        Category(name: "Electricity", color: SharedConstants.purple),
+        Category(name: "Internet", color: SharedConstants.blue),
+        Category(name: "Gas", color: SharedConstants.green),
+        Category(name: "Food", color: SharedConstants.orange),
+        Category(name: "Home Supplies", color: SharedConstants.yellow),
+        Category(name: "Water", color: SharedConstants.lightBlue),
+        Category(name: "Rent", color: SharedConstants.lightGreen),
     ]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
