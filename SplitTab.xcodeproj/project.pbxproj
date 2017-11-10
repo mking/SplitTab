@@ -12,6 +12,7 @@
 		08E9CA0F1FB55CD500619B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E9CA0D1FB55CD500619B6A /* Main.storyboard */; };
 		08E9CA111FB55CD500619B6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08E9CA101FB55CD500619B6A /* Assets.xcassets */; };
 		08E9CA141FB55CD500619B6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E9CA121FB55CD500619B6A /* LaunchScreen.storyboard */; };
+		8AEC4543510FD36AB5B5D9D6 /* Pods_SplitTab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3CE29B336C75ECA9FFC30C4 /* Pods_SplitTab.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		08E9CA101FB55CD500619B6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08E9CA131FB55CD500619B6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08E9CA151FB55CD500619B6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7A1DCB8F1DD3743770D96E0 /* Pods-SplitTab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplitTab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SplitTab/Pods-SplitTab.debug.xcconfig"; sourceTree = "<group>"; };
+		EB3F656733EAC0419717A3DB /* Pods-SplitTab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SplitTab.release.xcconfig"; path = "Pods/Target Support Files/Pods-SplitTab/Pods-SplitTab.release.xcconfig"; sourceTree = "<group>"; };
+		F3CE29B336C75ECA9FFC30C4 /* Pods_SplitTab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SplitTab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AEC4543510FD36AB5B5D9D6 /* Pods_SplitTab.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				08E9CA081FB55CD500619B6A /* SplitTab */,
 				08E9CA071FB55CD500619B6A /* Products */,
+				F61EA7D5CF34BE7CC873248F /* Pods */,
+				C1FB6640779163F0BD193287 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = SplitTab;
 			sourceTree = "<group>";
 		};
+		C1FB6640779163F0BD193287 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3CE29B336C75ECA9FFC30C4 /* Pods_SplitTab.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F61EA7D5CF34BE7CC873248F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7A1DCB8F1DD3743770D96E0 /* Pods-SplitTab.debug.xcconfig */,
+				EB3F656733EAC0419717A3DB /* Pods-SplitTab.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08E9CA181FB55CD500619B6A /* Build configuration list for PBXNativeTarget "SplitTab" */;
 			buildPhases = (
+				3292CB652D21763B040C9A90 /* [CP] Check Pods Manifest.lock */,
 				08E9CA021FB55CD500619B6A /* Sources */,
 				08E9CA031FB55CD500619B6A /* Frameworks */,
 				08E9CA041FB55CD500619B6A /* Resources */,
+				FC5A80B29DBAC998669C5D29 /* [CP] Embed Pods Frameworks */,
+				0BF33AA3B85300889D946194 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BF33AA3B85300889D946194 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SplitTab/Pods-SplitTab-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3292CB652D21763B040C9A90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SplitTab-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC5A80B29DBAC998669C5D29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SplitTab/Pods-SplitTab-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		08E9CA021FB55CD500619B6A /* Sources */ = {
@@ -272,6 +350,7 @@
 		};
 		08E9CA191FB55CD500619B6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7A1DCB8F1DD3743770D96E0 /* Pods-SplitTab.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -286,6 +365,7 @@
 		};
 		08E9CA1A1FB55CD500619B6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB3F656733EAC0419717A3DB /* Pods-SplitTab.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
