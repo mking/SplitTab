@@ -9,6 +9,8 @@
 import UIKit
 
 class CategoryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var collectionView: UICollectionView!
+
     let categories = [
         Category(name: "Electricity", color: UIColor.purple),
         Category(name: "Internet", color: UIColor.blue),
@@ -28,5 +30,13 @@ class CategoryViewController: UIViewController, UICollectionViewDataSource, UICo
         let category = categories[indexPath.row]
         cell.setCategory(category: category)
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowLineItem" {
+            let lineItemViewController = segue.destination as! LineItemViewController
+            let category = categories[collectionView.indexPathsForSelectedItems!.first!.row]
+            lineItemViewController.setCategory(category: category)
+        }
     }
 }
